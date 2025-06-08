@@ -12,7 +12,21 @@ async def start(update, context):
     await update.message.reply_text('Siema!')
 
 async def help_command(update, context):
-    await update.message.reply_text("Nie będę ci pomagał")
+    help_info = """
+Lista dostępnych walut:
+- AUD      - HUF
+- CAD      - JPY
+- CHF      - NOK
+- CZK      - SEK
+- DKK      - USD
+- EUR      - XDR
+- GBP
+
+Żeby dowiedzieć się kurs waluty wprowadź:
+/currency \{CUR\}
+gdzie CUR - kod waluty zgodnie z ISO_4217, zawierający wyłącznie 3 łacińskie litery
+"""
+    await update.message.reply_text(help_info)
 
 def get_currency(CUR):
     if len(CUR) != 3 or not isinstance(CUR, str):
