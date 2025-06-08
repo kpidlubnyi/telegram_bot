@@ -21,7 +21,7 @@ def get_currency(CUR):
     CUR = CUR.strip().upper()
     
     try:
-        response = requests.get(rf'https://api.nbp.pl/api/exchangerates/rates/C/{CUR}/?format=json')
+        response = requests.get(rf'https://api.nbp.pl/api/exchangerates/rates/C/{CUR}/?format=json').json()
         code, bid, ask = response.get('code'), response.get('rates')[0].get('bid'), response.get('rates')[0].get('ask')
         return f'{code}: {bid} / {ask}'
     except requests.exceptions.JSONDecodeError:
@@ -30,7 +30,7 @@ def get_currency(CUR):
 async def currency(update, context):
     if context.args:
         cur = ' '.join(context.args)
-        
+
     response = get_currency(cur)
     await update.message.reply_text(response)
 
