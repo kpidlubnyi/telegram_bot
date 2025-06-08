@@ -36,8 +36,10 @@ def get_currency(CUR):
     
     try:
         response = requests.get(rf'https://api.nbp.pl/api/exchangerates/rates/C/{CUR}/?format=json').json()
-        code, bid, ask = response.get('code'), response.get('rates')[0].get('bid'), response.get('rates')[0].get('ask')
-        return f'{code}: {bid} / {ask}'
+        code = response.get('code')
+        bid = int(response.get('rates')[0].get('bid'))
+        ask = int(response.get('rates')[0].get('ask'))
+        return f'{code}: {bid:.2f} / {ask:.2f}'
     except requests.exceptions.JSONDecodeError:
         pass
 
