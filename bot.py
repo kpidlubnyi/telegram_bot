@@ -42,7 +42,7 @@ def main():
     application.run_webhook(
         listen = '0.0.0.0',
         port=PORT,
-        webhook_url=f''
+        webhook_url=f'https://telegram-bot-id0a.onrender.com'
     )
 
 if __name__ == '__main__':
