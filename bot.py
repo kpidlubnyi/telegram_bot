@@ -9,7 +9,7 @@ load_dotenv()
 TOKEN = os.environ.get('BOT_TOKEN')
 
 async def start(update, context):
-    await update.mesage.reply_text('Siema!')
+    await update.message.reply_text('Siema!')
 
 async def help_command(update, context):
     await update.message.reply_text("Nie będę ci pomagał")
