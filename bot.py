@@ -23,7 +23,7 @@ Lista dostępnych walut:
 - GBP
 
 Żeby dowiedzieć się kurs waluty wprowadź:
-/currency \{CUR\}
+/currency {CUR}
 gdzie CUR - kod waluty zgodnie z ISO_4217, zawierający wyłącznie 3 łacińskie litery
 """
     await update.message.reply_text(help_info)
