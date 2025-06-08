@@ -28,7 +28,10 @@ def get_currency(CUR):
         pass
 
 async def currency(update, context):
-    response = get_currency(context)
+    if context.args:
+        cur = ' '.join(context.args)
+        
+    response = get_currency(cur)
     await update.message.reply_text(response)
 
 def main():
